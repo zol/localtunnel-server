@@ -20,6 +20,7 @@
     "bookrc": "0.0.1",
     "debug": "2.2.0",
     "express": "4.14.0",
+    "forever": "0.15.3",
     "http-proxy": "1.14.0",
     "localenv": "0.2.2",
     "on-finished": "2.3.0",
@@ -33,6 +34,7 @@
   },
   "scripts": {
     "test": "mocha --ui qunit --reporter spec",
-    "start": "./bin/server"
+    "start": "./bin/server",
+    "start-daemon": "forever start bin/server --port 3000"
   }
 }
