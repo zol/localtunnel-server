@@ -47,10 +47,19 @@ function maybe_bounce(req, res, sock, head) {
         return false;
     }
 
-    const subdomain = tldjs.getSubdomain(hostname);
-    if (!subdomain) {
+    // Zol: Hack to make tunnel work with subdomains of the form
+    // foo.tunnel.chromaticqa.com rather than foo.tunnel.com
+    const subdomain = hostname.split('.')[0];
+
+    if (subdomain === 'tunnel') {
         return false;
     }
+
+    // orig:
+    //const subdomain = tldjs.getSubdomain(hostname);
+    //if (!subdomain) {
+    //    return false;
+    //}
 
     const client = clients[subdomain];
 
