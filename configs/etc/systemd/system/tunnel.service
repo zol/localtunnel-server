@@ -1,0 +1,20 @@
+[Unit]
+Description=Tunnel Server
+
+[Service]
+ExecStart=/home/ubuntu/localtunnel-server/bin/server --port 3000
+# Required on some systems
+#WorkingDirectory=/opt/nodeserver
+Restart=always
+# Restart service after 5 seconds if service crashes
+RestartSec=5
+# Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=tunnel
+User=ubuntu
+Group=ubuntu
+#Environment=NODE_ENV=production PORT=1337
+
+[Install]
+WantedBy=multi-user.target
