@@ -2,7 +2,7 @@
 Description=Tunnel Server
 
 [Service]
-ExecStart=/home/ubuntu/localtunnel-server/bin/server --port 3000
+ExecStart=/home/ubuntu/localtunnel-server/bin/server --port 3000 --secure true --max-sockets 20
 # Required on some systems
 #WorkingDirectory=/opt/nodeserver
 Restart=always
